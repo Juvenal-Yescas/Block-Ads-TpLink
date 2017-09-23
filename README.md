@@ -3,6 +3,7 @@
  Block advertising on router tp link, the most important domains of publicity and malware, with tp link you can block 64 domains, if you need blocks read about free firmware (DD-WRT, OpenWrt)
 
 ----------
+> It is recommended to make a backup of the configuration
 ## Configuration
 Configure the conf.json file with the data of your tplink router
 

@@ -23,7 +23,9 @@ def checkDomain(lineDomain):
 def specialAdd():
     global count,numberTitle,numberEspecial
     remaining=len(array)-numberEspecial
-    if remaining == 1:
+    if remaining == 0:
+        return True;
+    elif remaining == 1:
         tpLink.addTarget("Adspecial"+str(numberTitle),array[count],"","","")
     elif remaining == 2:
         tpLink.addTarget("Adspecial"+str(numberTitle),array[count],array[count+1],"","")
