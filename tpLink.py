@@ -1,4 +1,11 @@
-import urllib2, base64, json
+#! /usr/bin/env python
+try:
+    # For Python 3.0 and later
+    from urllib.request import urlopen
+    import json, base64
+except ImportError:
+    # Fall back to Python 2's
+    import urllib2, base64, json
 
 with open('config.json') as data_file:    
     data = json.load(data_file)
@@ -29,7 +36,7 @@ def addHostLan(Description,ipStart,ipEnd):
     return makeRequest(url,heads)
 
 def getTotalTarget(number):
-    url = 'http://' + data["IpRouter"] + '/userRpm/AccessCtrlAccessTargetsRpm.htm?Page='+`number`
+    url = 'http://' + data["IpRouter"] + '/userRpm/AccessCtrlAccessTargetsRpm.htm?Page='+str(number)
     
     heads = { 'Referer' : 'http://' + data["IpRouter"] + '/userRpm/AccessCtrlAccessTargetsRpm.htm',
              'Authorization' : auth
@@ -55,7 +62,7 @@ def countTarget(number):
     return (len(devices))-1
 
 def addRule(ruleName,numberTarget):
-    url = 'http://' + data["IpRouter"] + '/userRpm/AccessCtrlAccessRulesRpm.htm?rule_name='+ruleName+'&hosts_lists=0&targets_lists='+`numberTarget`+'&scheds_lists=255&enable=1&Changed=0&SelIndex=0&Page=1&Save=Save'
+    url = 'http://' + data["IpRouter"] + '/userRpm/AccessCtrlAccessRulesRpm.htm?rule_name='+ruleName+'&hosts_lists=0&targets_lists='+str(numberTarget)+'&scheds_lists=255&enable=1&Changed=0&SelIndex=0&Page=1&Save=Save'
     
     heads = { 'Referer' : 'http://' + data["IpRouter"] + '/userRpm/AccessCtrlAccessRulesRpm.htm',
              'Authorization' : auth
@@ -63,8 +70,17 @@ def addRule(ruleName,numberTarget):
 
     return makeRequest(url,heads)
 
+def reboot():
+    print ("Reboot")
+    url = 'http://' + data["IpRouter"] + '/userRpm/SysRebootRpm.htm?Reboot=%D6%D8%C6%F4%C2%B7%D3%C9%C6%F7'
+    heads = { 'Referer' : 'http://' + data["IpRouter"] + '/userRpm/SysRebootRpm.htm',
+             'Authorization' : auth
+    }
+
+    return makeRequest(url,heads)
+
 def enableAccessControl():
-    print "Enable Acces Control"
+    print ("Enable Acces Control")
     url = 'http://' + data["IpRouter"] + '/userRpm/AccessCtrlAccessRulesRpm.htm?enableCtrl=1&defRule=0&Page=1'
     heads = { 'Referer' : 'http://' + data["IpRouter"] + '/userRpm/AccessCtrlAccessRulesRpm.htm',
              'Authorization' : auth
@@ -73,4 +89,4 @@ def enableAccessControl():
     return makeRequest(url,heads)
 
 if __name__ == "__main__":
-    enableAccessControl()
+    reboot()

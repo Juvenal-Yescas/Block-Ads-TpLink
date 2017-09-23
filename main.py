@@ -24,16 +24,17 @@ def specialAdd():
     global count,numberTitle,numberEspecial
     remaining=len(array)-numberEspecial
     if remaining == 1:
-        tpLink.addTarget("Adspecial"+`numberTitle`,array[count],"","","")
+        tpLink.addTarget("Adspecial"+str(numberTitle),array[count],"","","")
     elif remaining == 2:
-        tpLink.addTarget("Adspecial"+`numberTitle`,array[count],array[count+1],"","")
+        tpLink.addTarget("Adspecial"+str(numberTitle),array[count],array[count+1],"","")
     elif remaining == 3:
-        tpLink.addTarget("Adspecial"+`numberTitle`,array[count],array[count+1],array[count+2],"")
+        tpLink.addTarget("Adspecial"+str(numberTitle),array[count],array[count+1],array[count+2],"")
     else :
-        tpLink.addTarget("Adspecial"+`numberTitle`,array[count],array[count+1],array[count+2],array[count+3])
+        tpLink.addTarget("Adspecial"+str(numberTitle),array[count],array[count+1],array[count+2],array[count+3])
 
 def setupTargets():
-    print "Add targets"
+    print ("Add targets")
+
     global count,numberTitle,numberEspecial
     for lineDomain in lines:
         checkDomain(lineDomain)
@@ -45,7 +46,7 @@ def setupTargets():
             specialAdd()
             count = count + 4
         else:
-            tpLink.addTarget("Ads"+`numberTitle`,array[count],array[count+1],array[count+2],array[count+3])
+            tpLink.addTarget("Ads"+str(numberTitle),array[count],array[count+1],array[count+2],array[count+3])
             count = count + 4
             numberTitle = numberTitle+1
 
@@ -53,18 +54,18 @@ def setupTargets():
 
 # Start count the rules and add
 def setupRules():
-    print "Setup rules"
+    print ("Setup rules")
     countRule=1
     numbeRules=(tpLink.countTarget(1)+tpLink.countTarget(2))
     while(countRule<=numbeRules):
-        tpLink.addRule("Ads"+`countRule`,countRule-1)
+        tpLink.addRule("Ads"+str(countRule),countRule-1)
         countRule=countRule+1
 # End count the rules and add
 
 if __name__ == "__main__":
-    print 'Start'
+    print ('Start')
     setupTargets()
     tpLink.addHostLan("Block Ads Lan","192.168.0.100","192.168.0.199")
     setupRules()
     tpLink.enableAccessControl()
-    print "Good bye!"
+    print ("Good bye!")
