@@ -1,0 +1,12 @@
+{
+    "IpRouter": "192.168.0.1",
+    "Login": {
+            "User": "admin",
+            "Password": "admin"
+        },
+    "Lan": {
+            "ipStart": "192.168.0.100",
+            "ipEnd": "192.168.0.199"
+        },
+    "FileAds": "hosts.txt"
+}
