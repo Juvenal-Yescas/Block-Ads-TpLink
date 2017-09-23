@@ -26,4 +26,4 @@ Desktop.ini
 
 # Logs
 logs
-*.log
+*.pyc
