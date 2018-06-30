@@ -11,7 +11,6 @@
 0.0.0.0 adservices.google.com
 0.0.0.0 feedads.googleadservices.
 0.0.0.0 googleads4.g.doubleclick.net
-0.0.0.0 pagead-googlehosted.l.google.com
 0.0.0.0 googleads2.g.doubleclick.net
 0.0.0.0 www.doubleclickbygoogle.com
 0.0.0.0 google-analytics.com
@@ -33,11 +32,9 @@
 0.0.0.0 rtd.tubemogul.com
 0.0.0.0 s.youtube.com
 0.0.0.0 s.innovid.com
-0.0.0.0 www-google-analytics.l.google.com
 0.0.0.0 stats.g.doubleclick.net
 0.0.0.0 clients.l.google.com
 0.0.0.0 pagead.l.doubleclick.net
-0.0.0.0 www-googletagmanager.l.google.com
 0.0.0.0 googleadapis.l.google.com
 0.0.0.0 securepubads.g.doubleclick.net
 0.0.0.0 2975c.v.fwmrm.net
